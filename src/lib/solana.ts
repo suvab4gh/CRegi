@@ -3,16 +3,16 @@ import { findReference, validateTransfer } from '@solana/pay';
 import BigNumber from 'bignumber.js';
 
 const getSolanaConnection = () => {
-  const url = process.env.SOLANA_RPC_URL || 'https://api.devnet.solana.com';
+  const url = process.env.SOLANA_RPC_URL || 'https://api.mainnet-beta.solana.com';
   if (!url.startsWith('http')) {
-     console.warn('SOLANA_RPC_URL is invalid. Using default devnet.');
-     return new Connection('https://api.devnet.solana.com', 'confirmed');
+     console.warn('SOLANA_RPC_URL is invalid. Using default mainnet-beta.');
+     return new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
   }
   return new Connection(url, 'confirmed');
 };
 
 const connection = getSolanaConnection();
-const USDC_MINT = new PublicKey(process.env.NEXT_PUBLIC_SOLANA_USDC_MINT || '4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU');
+const USDC_MINT = new PublicKey(process.env.NEXT_PUBLIC_SOLANA_USDC_MINT || 'EPjFW36DBHx3q8n8D38vG5rR9T6AatW3oJLbC2alLXjB');
 
 export async function verifySolanaPayment(reference: string, amount: number, recipient: string) {
   try {
