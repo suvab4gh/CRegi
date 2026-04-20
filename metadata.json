@@ -1,0 +1,6 @@
+{
+  "name": "CRegi",
+  "description": "A cross-chain USDC checkout terminal for merchants. Accept payments on Solana and settle on Avalanche, powered by Circle.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
